@@ -1,9 +1,18 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {DataSet} from '../../models/DataSet.model';
-import {DataSetService} from '../../services/data-set.service';
+/**
+ * framework imports
+ */
+import { Component, OnInit }                  from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+/**
+ * plugins imports
+ */
 import {find} from 'lodash'
-import {Command} from '../../models/command.model';
+/**
+ * project imports
+ */
+import { DataSet }        from '../../models/DataSet.model';
+import { DataSetService } from '../../services/data-set.service';
+import { Command }        from '../../models/command.model';
 @Component({
   selector: 'app-intent-recognition',
   templateUrl: './intent-recognition.component.html',
@@ -27,6 +36,10 @@ export class IntentRecognitionComponent implements OnInit {
     );
   }
 
+  /**
+   * init the selection reactive Form
+   * subscribe to selection Changes
+   */
   private initForm(): void {
     const
       dataSetControle = new FormControl(
@@ -63,6 +76,10 @@ export class IntentRecognitionComponent implements OnInit {
     this.getCommands(this.selectionForm.value);
   }
 
+  /**
+   * get commands giving the form values
+   * @param values
+   */
   private getCommands(values: any): void {
     this.dataSetService.getDataSetCommands(values.dataSet, values.language).then(
       (commands: Command[]): any => this.commands = commands
