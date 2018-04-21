@@ -1,0 +1,19 @@
+@import "../../../assets/theme/colors";
+:host {
+  .mat-chip {
+    font-size: 1rem;
+    margin: .5rem !important;
+  }
+  .mat-card {
+    background-color: $transparent-background;
+  }
+  .mat-card-content{
+    height: 300px !important;
+    overflow: auto;
+  }
+  @media only screen and (max-width: 600px) {
+    .mat-card-content{
+      height: 230px !important;
+    }
+  }
+}

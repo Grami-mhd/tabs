@@ -1,0 +1,20 @@
+@import "../assets/theme/colors";
+:host {
+  .header {
+    color: $primary-text-color;
+    text-align: center;
+    font-size: 3rem;
+  }
+  .mat-tab-group {
+    width: 70vw;
+  }
+  @media only screen and (max-width: 600px) {
+    .mat-tab-group {
+      width: 95vw;
+    }
+  }
+  .tab-title {
+    color: $primary-text-color;
+    font-size: 1.5rem;
+  }
+}

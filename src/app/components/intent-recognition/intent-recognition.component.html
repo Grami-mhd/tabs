@@ -1,0 +1,31 @@
+<mat-card *ngIf="selectionForm">
+  <form [formGroup]="selectionForm">
+    <mat-card-header
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutAlign="space-between stretch"
+    >
+      <mat-form-field fxFlex="48">
+        <mat-select formControlName="dataSet">
+          <mat-option [value]="dataSet.id" *ngFor="let dataSet of dataSets">
+            {{dataSet.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="48">
+        <mat-select formControlName="language">
+          <mat-option [value]="language.code" *ngFor="let language of selectedDataSet?.languages">
+            {{language.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-header>
+  </form>
+  <mat-card-content>
+    <mat-chip-list>
+      <mat-chip color="primary" selected *ngFor="let command of commands">
+        {{command.name}}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+</mat-card>
